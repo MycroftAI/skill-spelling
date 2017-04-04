@@ -1,1 +1,4 @@
-# skill-spelling
+# Spelling Skill
+
+## Usage:
+* `spell Mycroft`
