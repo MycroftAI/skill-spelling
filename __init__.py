@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import time
+from adapt.intent import IntentBuilder
 from mycroft import MycroftSkill, intent_handler
 from mycroft.audio import wait_while_speaking
 
@@ -41,7 +42,7 @@ class SpellingSkill(MycroftSkill):
         #       of the need for deactivate_mouth_events() -- or at least handle
         #       at the Enclosure level.
         self.enclosure.mouth_text(word+"          ")
-        time.sleep(self.LETTERS_PER_SCREEN + len(word)) * self.SEC_PER_LETTER)
+        time.sleep(self.LETTERS_PER_SCREEN + len(word) * self.SEC_PER_LETTER)
         wait_while_speaking()
 
         self.enclosure.activate_mouth_events()
