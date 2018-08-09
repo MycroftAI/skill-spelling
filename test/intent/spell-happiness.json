@@ -1,0 +1,6 @@
+{
+  "utterance": "spell happiness",
+  "intent_type": "handle_spell",
+  "intent": { "Word": "happiness" },
+  "expected_response": "H\\\\. A\\\\. P\\\\. P\\\\. I\\\\. N\\\\. E\\\\. S\\\\. S\\\\."
+}

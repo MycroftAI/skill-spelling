@@ -1,57 +1,51 @@
-# Copyright 2016 Mycroft AI, Inc.
+# Copyright 2018 Mycroft AI Inc.
 #
-# This file is part of Mycroft Core.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
 #
-# Mycroft Core is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+#    http://www.apache.org/licenses/LICENSE-2.0
 #
-# Mycroft Core is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Mycroft Core.  If not, see <http://www.gnu.org/licenses/>.
-
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 import time
-
-from adapt.intent import IntentBuilder
-from os.path import dirname, join
-
-from mycroft.skills.core import MycroftSkill
-
-__author__ = 'seanfitz'
+from mycroft import MycroftSkill, intent_handler
+from mycroft.audio import wait_while_speaking
 
 
-# TODO - Localization
 class SpellingSkill(MycroftSkill):
-    SEC_PER_LETTER = 5.0 / 7.0
-    LETTERS_PER_SCREEN = 7.0
+    SEC_PER_LETTER = 0.9         # based on the Mark 1 scrolling speed
+    LETTERS_PER_SCREEN = 7.0     # based on the Mark 1 screen size
 
     def __init__(self):
         super(SpellingSkill, self).__init__(name="SpellingSkill")
 
-    def initialize(self):
-        intent = IntentBuilder("SpellingIntent").require(
-            "SpellingKeyword").require("Word").build()
-        self.register_intent(intent, self.handle_intent)
-
-    def handle_intent(self, message):
+    @intent_handler(IntentBuilder("").require("Spell").require("Word"))
+    def handle_spell(self, message):
         word = message.data.get("Word")
-        self.emitter.once("recognizer_loop:audio_output_start",
-                          self.enclosure.mouth_text(word))
-        spelled_word = ', '.join(word).lower()
+        spelled_word = '. '.join(word).upper()
+
         self.enclosure.deactivate_mouth_events()
         self.speak(spelled_word)
-        time.sleep((self.LETTERS_PER_SCREEN + len(word)) * self.SEC_PER_LETTER)
+
+        # Pause mouth shapes appearing on screen for at least enough time
+        # for the word to scroll by on the Mark 1 screen.  Pad with blanks
+        # to prevent re-starting the scroll action if the timing is slightly
+        # off.
+
+        # TODO: Add mouth_text(word, wrap_at_end=False) parameter and get rid
+        #       of the need for deactivate_mouth_events() -- or at least handle
+        #       at the Enclosure level.
+        self.enclosure.mouth_text(word+"          ")
+        time.sleep(self.LETTERS_PER_SCREEN + len(word)) * self.SEC_PER_LETTER)
+        wait_while_speaking()
+
         self.enclosure.activate_mouth_events()
         self.enclosure.mouth_reset()
-
-    def stop(self):
-        pass
 
 
 def create_skill():
