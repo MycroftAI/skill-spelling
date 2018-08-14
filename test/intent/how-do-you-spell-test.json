@@ -2,5 +2,6 @@
   "utterance": "how do you spell the word test",
   "intent_type": "handle_spell",
   "intent": { "Word": "test" },
-  "expected_response": "T\\\\. E\\\\. S\\\\. T\\\\."
+  "expected_response": "T\\. E\\. S\\. T"
 }
+
