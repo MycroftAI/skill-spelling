@@ -1,1 +1,1 @@
-(buchstabiere wort|rechtschreibung des wortes|rechtschreibung von|buchstabiere) (?P<Word>\w+)
+(Buchstabierwort|Rechtschreibung des Wortes|Rechtschreibung von|buchstabieren) (?P<Word>\w+)
