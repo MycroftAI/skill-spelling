@@ -1,0 +1,1 @@
+(woord spellen|spelling van woord|spelling van|spellen) (?P<Word>\w+)

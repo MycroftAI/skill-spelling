@@ -1,0 +1,1 @@
+(soletrar palavra|soletração da palavra|ortografia de|soletrar)(?P<Word>\w+)
