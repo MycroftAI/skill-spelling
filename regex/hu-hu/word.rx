@@ -1,0 +1,1 @@
+(?P<Word>\w+) (kiejtése|helyesírása|betűzése)
