@@ -1,1 +1,1 @@
-(spell word|spelling of word|spelling of|spell) (?P<Word>\w+)
+(spune pe litere cuvantul|pronunta cuvantul|pronuntarea|spune pe litere) (?P<Word>\w+)
