@@ -28,7 +28,7 @@ class SpellingSkill(MycroftSkill):
     @intent_handler(IntentBuilder("").require("Spell").require("Word"))
     def handle_spell(self, message):
         word = message.data.get("Word")
-        spelled_word = '. '.join(word).upper()
+        spelled_word = '; '.join(word).upper()
 
         self.enclosure.deactivate_mouth_events()
         self.speak(spelled_word)
