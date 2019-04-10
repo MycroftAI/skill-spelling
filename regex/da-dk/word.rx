@@ -1,0 +1,1 @@
+(stavord | stavning af ord | stavning af | stavning) (?P<Word>\w+)
