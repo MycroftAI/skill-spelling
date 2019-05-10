@@ -1,0 +1,6 @@
+{
+  "utterance": "what is the spelling of aardwark",
+  "intent_type": "handle_spell",
+  "intent": { "Word": "aardwark" },
+  "expected_response": "A; A; R; D; W; A; R; K"
+}
