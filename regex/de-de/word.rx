@@ -1,1 +1,1 @@
-(Buchstabierwort|Rechtschreibung des Wortes|Rechtschreibung von|buchstabieren) (?P<Word>\w+)
+(Buchstabiere mir|wie schreibt man|wie buchstabiert man|wie schreibt man(?! the)|spell(?! the)) (?P<Word>\w+)

@@ -1,1 +1,1 @@
-(ortografia parola|ortografia della parola|ortografia di|ortografia) (?P<Word>\w+)
+(fai lo spelling|spelling della parola) (?P<Word>\w+)

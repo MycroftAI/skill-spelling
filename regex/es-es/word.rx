@@ -1,1 +1,1 @@
-(deletrear palabra|deletrea la palabra|deletrea|deletrear) (?P<Word>\w+)
+(deletrea la palabra|deletrea|deletreo de la palabra|deletrear(?! la)|deletrea(?! la)) (?P<Word>\w+)
