@@ -1,1 +1,1 @@
-(épelle le mot|épellation du mot|épellation de|épelle) (?P<Word>\w+)
+(épelé le mot|épèle le mot|épelé (?! le)| épèle (?! le)) (?P<Word>\w+)
