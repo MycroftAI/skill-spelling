@@ -1,0 +1,1 @@
+(przeliteruj słowo|literuj słowo|litery w słowie) (?P<Word>\w+)

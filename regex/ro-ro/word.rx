@@ -1,1 +1,1 @@
-(spune pe litere cuvântul|pronunță cuvântul|pronunțarea|spune pe litere) (?P<Word>\w+)
+(rostiți cuvântul | silabisește cuvântul|ortografierea cuvântului | ortografie a (?! lui) (?P<Word>\w+)
