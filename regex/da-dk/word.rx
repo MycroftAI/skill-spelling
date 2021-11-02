@@ -1,1 +1,1 @@
-(stavord | stavning af ord | stavning af | stavning) (?P<Word>\w+)
+(stav ordet|stav ord|stavningen af ordet|stavningen(?! the)|stav(?! the)) (?P<Word>\w+)
