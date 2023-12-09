@@ -1,2 +1,7 @@
 *.pyc
+__pycache__
+.*.sw?
+build
+*egg-info
+
 settings.json
